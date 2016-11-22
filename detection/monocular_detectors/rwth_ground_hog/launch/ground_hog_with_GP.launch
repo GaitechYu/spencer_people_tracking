@@ -12,6 +12,8 @@
     <arg name="score_thresh" default="0.0"/>
 
     <node pkg="rwth_ground_hog" type="groundHOG" name="groundHOG" output="screen">
+        <remap from="/spencer/sensors/rgbd_front_top/rgb/image_rect_color" to="/spencer/sensors/rgbd_front_top/qhd/image_color_rect"/>
+        <remap from="/spencer/sensors/rgbd_front_top/rgb/camera_info" to="/spencer/sensors/rgbd_front_top/qhd/camera_info"/>
         <param name="world_scale" value="$(arg world_scale)"/>
         <param name="score_thresh" value="$(arg score_thresh)"/>
         <param name="model" value="$(arg model)" type="string"/>

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+     <group ns="spencer/sensors">
+        <include file="$(find kinect2_bridge)/launch/kinect2_bridge.launch">
+          <arg name="base_name" value="rgbd_front_top"/>
+          <arg name="publish_tf" default="false"/>
+          <arg name="depth_method" value="opencl"/>
+          <arg name="reg_method" value="opencl"/>
+          <arg name="max_depth" default="6.0"/>
+        </include>
+    </group>
+</launch>

@@ -6,9 +6,9 @@ Launches the nearest-neighbor tracker with a set of parameters that worked well 
     <arg name="subscriber_queue_size" default="1"/>
 
     <arg name="use_laser_shade_occlusion_manager" default="false"/>
-    <arg name="use_imm" default="false"/>
+    <arg name="use_imm" default="true"/>
     <arg name="imm_param_file" default="imm_CT_CV.yaml"/>
-    <arg name="use_initiation_logic" default="true"/>
+    <arg name="use_initiation_logic" default="false"/>
     <arg name="initiation_logic_param_file" default="logic_initiator.yaml"/>
     <arg name="ekf_param_file" default="ekf_default.yaml"/>
     <arg name="data_association_type" default="greedy_nearest_neighbor"/>

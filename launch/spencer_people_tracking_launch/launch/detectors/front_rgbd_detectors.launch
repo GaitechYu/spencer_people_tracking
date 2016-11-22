@@ -1,6 +1,9 @@
+<?xml version="1.0"?>
 <launch>
     <arg name="upper_body" default="true"/>
     <arg name="hog" default="false"/>
+    <arg name="pcl" default="false"/>
+    <arg name="debug" default="false" />
 
     <arg name="ground_plane" value="/spencer/sensors/rgbd_front_top/ground_plane"/>
 
@@ -24,6 +27,7 @@
 
         <!-- Front RGB-D upper body -->
         <include file="$(find rwth_upper_body_detector)/launch/upper_body_detector.launch" ns="rgbd_front_top" if="$(arg upper_body)">
+            <arg name="config_file" value="$(find rwth_upper_body_detector)/config/config_kinect2.inp" />
             <arg name="detected_persons" value="/spencer/perception_internal/detected_persons/rgbd_front_top/upper_body"/>
             <arg name="camera_namespace" value="/spencer/sensors/rgbd_front_top"/>
             <arg name="upper_body_detections" value="upper_body_detector/detections" />
@@ -32,6 +36,7 @@
             <arg name="ground_plane" value="$(arg ground_plane)" />
             <arg name="detection_id_offset" value="3"/>
             <arg name="detection_id_increment" value="$(arg detection_id_increment)"/>
+            <arg name="debug" value="$(arg debug)" />
         </include>
 
         <!-- Front RGB-D HOG -->
@@ -45,6 +50,13 @@
             <arg name="ground_plane" value="$(arg ground_plane)" />
             <arg name="detection_id_offset" value="4"/>
             <arg name="detection_id_increment" value="$(arg detection_id_increment)"/>
+        </include>
+       
+        <!-- Front PCL people detector -->
+        <include file="$(find pcl_people_detector)/launch/start.launch" ns="rgbd_front_top" if="$(arg pcl)">
+            <arg name="input_topic" value="/spencer/sensors/rgbd_front_top/sd/points" />
+            <arg name="camera_info_topic" value="/spencer/sensors/rgbd_front_top/sd/camera_info" />
+            <arg name="base_link_frame" value="base_footprint"/>
         </include>
        
     </group>
