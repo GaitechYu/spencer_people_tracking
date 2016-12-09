@@ -54,10 +54,10 @@ WORLD_SCALE = 1.0
 #===========================
 # height and width of images
 #===========================
-#dImWidth = 960
-#dImHeight = 540
-dImWidth = 512
-dImHeight = 424
+dImWidth = 960
+dImHeight = 540
+#dImWidth = 512
+#dImHeight = 424
 
 #====================================
 # Number of Frames / offset

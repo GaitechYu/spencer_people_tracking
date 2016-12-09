@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <launch>
     <!-- Launch file arguments -->
-    <arg name="height_above_ground" default="1.6"/>  <!-- in meters, assumes a horizontally oriented RGB-D sensor; important for accurate detection -->
-    <arg name="load_driver" default="true"/>  <!-- set to false if you are already running OpenNi from elsewhere -->
-    <arg name="visualization" default="true"/>
+    <arg name="height_above_ground" default="1.3"/>  <!-- in meters, assumes a horizontally oriented RGB-D sensor; important for accurate detection -->
+    <arg name="load_driver" default="false"/>  <!-- set to false if you are already running OpenNi from elsewhere -->
+    <arg name="visualization" default="false"/>
     <arg name="dummy_transforms" default="true"/>
 
 
@@ -12,16 +12,16 @@
 
 
     <!-- this for sd definition -->
+    <!--
     <node name="image_rgb_relay" pkg="topic_tools" type="relay" args="/spencer/sensors/rgbd_front_top/sd/image_color_rect /spencer/sensors/rgbd_front_top/rgb/image_raw"/>
     <node name="image_depth_relay" pkg="topic_tools" type="relay" args="/spencer/sensors/rgbd_front_top/sd/image_depth /spencer/sensors/rgbd_front_top/depth/image_rect"/>
     <node name="info_rgb_relay" pkg="topic_tools" type="relay" args="/spencer/sensors/rgbd_front_top/sd/camera_info /spencer/sensors/rgbd_front_top/depth/camera_info"/>
+    -->
 
     <!-- this for qhd definition -->
-<!--
     <node name="image_rgb_relay" pkg="topic_tools" type="relay" args="/spencer/sensors/rgbd_front_top/qhd/image_color_rect /spencer/sensors/rgbd_front_top/rgb/image_raw"/>
     <node name="image_depth_relay" pkg="topic_tools" type="relay" args="/spencer/sensors/rgbd_front_top/qhd/image_depth_rect /spencer/sensors/rgbd_front_top/depth/image_rect"/>
     <node name="info_rgb_relay" pkg="topic_tools" type="relay" args="/spencer/sensors/rgbd_front_top/qhd/camera_info /spencer/sensors/rgbd_front_top/depth/camera_info"/>
--->
     
     <node name="tf_rgb_frame" pkg="tf" type="static_transform_publisher" args="0 0 0 0 0 0 rgbd_front_top_link rgbd_front_top_rgb_frame 10" />
     <node name="tf_rgb_optical" pkg="tf" type="static_transform_publisher" args="0 0 0 -1.5707 0 -1.5707 rgbd_front_top_link rgbd_front_top_rgb_optical_frame 10" />
@@ -37,7 +37,7 @@
     <!-- Set up dummy transforms into an imaginary robot and odom frame -->
     <group if="$(arg dummy_transforms)">
         <node name="tf_base_footprint" pkg="tf" type="static_transform_publisher" args="0 0 $(arg height_above_ground) 0 0 0 base_footprint rgbd_front_top_link 10"/>
-        <node name="tf_odom"           pkg="tf" type="static_transform_publisher" args="0 0 0 0 0 0 odom base_footprint 10"/>
+        <!--node name="tf_odom"           pkg="tf" type="static_transform_publisher" args="0 0 0 0 0 0 odom base_footprint 10"/-->
     </group>
 
 

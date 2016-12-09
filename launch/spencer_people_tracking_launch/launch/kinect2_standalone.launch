@@ -4,8 +4,8 @@
         <include file="$(find kinect2_bridge)/launch/kinect2_bridge.launch">
           <arg name="base_name" value="rgbd_front_top"/>
           <arg name="publish_tf" default="false"/>
-          <arg name="depth_method" value="opencl"/>
-          <arg name="reg_method" value="opencl"/>
+          <arg name="depth_method" value="cpu"/>
+          <arg name="reg_method" value="cpu"/>
           <arg name="max_depth" default="6.0"/>
         </include>
     </group>
