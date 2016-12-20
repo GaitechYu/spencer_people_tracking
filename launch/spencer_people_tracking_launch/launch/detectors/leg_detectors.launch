@@ -3,7 +3,7 @@
     <arg name="front" default="true"/>  <!-- front detector enabled? -->
     <arg name="rear" default="false"/>   <!-- rear detector enabled? -->
     
-    <arg name="config_file" default="spencer2.yaml"/>
+    <arg name="config_file" default="defaults.yaml"/>
 
     <arg name="detection_id_increment" default="20"/>
     <arg name="detection_id_offset_front" default="1"/>
