@@ -16,6 +16,7 @@
             <!-- Load detector config -->
             <!--rosparam command="load" file="$(find spencer_leg_detector_wrapper)/configs/$(arg config_file)"/-->
             <param name="fixed_frame" value="base_footprint"/>
+            <param name="leg_reliability_limit" value="0.1"/>
         </node>
 
         <node name="converter" pkg="spencer_detected_person_conversion" type="position_measurement_array_to_detected_persons.py" output="screen">
