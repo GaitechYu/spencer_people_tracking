@@ -42,7 +42,7 @@
 
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
-#include <opencv2/gpu/gpu.hpp>
+//#include <opencv2/gpu/gpu.hpp>
 #include <opencv2/objdetect/objdetect.hpp>
 
 #include <assert.h>
@@ -128,7 +128,7 @@ template <typename PointT> void
 pcl::people::PersonClassifier<PointT>::useOpenCVGpuClassifier(bool enable)
 {
     use_opencv_gpu_classifier_ = enable;
-    setSVM(128, 64, cv::gpu::HOGDescriptor::getPeopleDetector64x128(), 0.0);
+//    setSVM(128, 64, cv::gpu::HOGDescriptor::getPeopleDetector64x128(), 0.0);
 }
 
 
@@ -209,8 +209,8 @@ pcl::people::PersonClassifier<PointT>::evaluate (cv::Mat& rgbImage,
         cv::imwrite(imageFilename.str(), outputSample);
     }
 
-    if(!use_opencv_gpu_classifier_) // original CPU-based classifier
-    {
+    //if(!use_opencv_gpu_classifier_) // original CPU-based classifier
+    //{
         // Convert the OpenCV image (in BGR format) to array of float (complete R channel - complete G channel - complete B channel):
         // FIXME: This could be sped up
         float* sample_float = new float[sample.rows * sample.cols * sample.channels()];
@@ -243,7 +243,8 @@ pcl::people::PersonClassifier<PointT>::evaluate (cv::Mat& rgbImage,
 
         delete[] descriptor;
         delete[] sample_float;
-    }
+    //}
+    /*
     else // GPU-based classifier
     {
         // NOTE: SVM parameters can still be set externally using setSVM(). Use e.g. cv::gpu::HOGDescriptor::getPeopleDetector64x128();
@@ -271,7 +272,7 @@ pcl::people::PersonClassifier<PointT>::evaluate (cv::Mat& rgbImage,
 
         assert(confidences.size() == 1);
         confidence = confidences[0];
-    }
+    }*/
 
     if(!rgbImageVisualization.empty()) {
         std::stringstream confidenceStr; confidenceStr << std::fixed << std::setprecision(3) << confidence;

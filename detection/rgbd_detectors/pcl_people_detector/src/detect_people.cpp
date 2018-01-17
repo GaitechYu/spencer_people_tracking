@@ -477,10 +477,10 @@ int main (int argc, char** argv)
   ROS_INFO_STREAM("Loading learned SVM classifier from file " << svm_filename);
 
   // Check if OpenCV was compiled with CUDA support
-  if(gpu_classifier && 0 == cv::gpu::getCudaEnabledDeviceCount()) {
+  //if(gpu_classifier && 0 == cv::gpu::getCudaEnabledDeviceCount()) {
     gpu_classifier = false;
-    ROS_ERROR_STREAM("OpenCV was compiled without GPU (CUDA) support. Overriding gpu_classifier parameter and setting it to False.");
-  }
+  //  ROS_ERROR_STREAM("OpenCV was compiled without GPU (CUDA) support. Overriding gpu_classifier parameter and setting it to False.");
+  //}
   ROS_INFO_STREAM("GPU acceleration is " << (gpu_classifier ? "enabled" : "disabled"));
 
   
