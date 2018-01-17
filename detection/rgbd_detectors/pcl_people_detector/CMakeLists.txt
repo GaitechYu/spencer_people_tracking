@@ -6,8 +6,12 @@ find_package(catkin REQUIRED COMPONENTS
   spencer_tracking_msgs visualization_msgs spencer_vision_msgs
 )
 
+#find_package(OpenCV 2 REQUIRED)
+find_package(OpenCV 3 QUIET)
+if(NOT OpenCV_FOUND)
+  find_package(OpenCV 2 REQUIRED)
+endif()
 
-find_package(OpenCV 2 REQUIRED)
 message(STATUS "Using OpenCV version ${OpenCV_VERSION} installed at: ${OpenCV_INCLUDE_DIRS}")
 message(STATUS "OpenCV supported compute capabilities are: ${OpenCV_COMPUTE_CAPABILITIES}")
 
