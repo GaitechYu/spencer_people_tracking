@@ -65,7 +65,7 @@ NearestNeighborTracker::NearestNeighborTracker(ros::NodeHandle& nodeHandle, ros:
   m_initiator(),
   m_dataAssociation()
 {
-    m_frameID = Params::get<string>("world_frame", "odom");
+    m_frameID = Params::get<string>("world_frame", "summit_xl_odom");
 
     // Get settings for IMM or simple Kalman Filter
     if (Params::get<bool>("use_imm", false)){

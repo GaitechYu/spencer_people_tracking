@@ -4,7 +4,7 @@
     <arg     if="$(arg debug)" name="launch_prefix" value="terminator -m -x gdb --args" /> <!-- local debug -->
     
     <arg name="config_file" default="$(find rwth_upper_body_detector)/config/config_Asus.inp" />
-    <arg name="template_file" default="$(find rwth_upper_body_detector)/config/upper_temp_n.txt" />
+    <arg name="template_file" default="$(find rwth_upper_body_detector)/config/image3.txt" />
     <arg name="queue_size" default="5" />
     <arg name="camera_namespace" default="/head_xtion" />
     <arg name="upper_body_detections" default="/upper_body_detector/detections" />

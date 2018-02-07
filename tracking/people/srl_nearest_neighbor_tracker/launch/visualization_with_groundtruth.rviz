@@ -217,7 +217,7 @@ Visualization Manager:
   Enabled: true
   Global Options:
     Background Color: 52; 52; 52
-    Fixed Frame: odom
+    Fixed Frame: summit_xl_odom
     Frame Rate: 30
   Name: root
   Tools:

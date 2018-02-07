@@ -38,7 +38,7 @@ from geometry_msgs.msg import PoseStamped
 
 def newDetectedPersonsAvailable(detectedPersons):
     try:
-        tfListener.waitForTransform(detectedPersons.header.frame_id, "odom", detectedPersons.header.stamp, rospy.Duration(0.05))
+        tfListener.waitForTransform(detectedPersons.header.frame_id, "summit_xl_odom", detectedPersons.header.stamp, rospy.Duration(0.05))
     except tf.Exception:
         return
 
@@ -47,7 +47,7 @@ def newDetectedPersonsAvailable(detectedPersons):
         poseStamped.pose = detectedPerson.pose.pose
         poseStamped.header = detectedPersons.header
 
-        transformedPoseStamped = tfListener.transformPose("odom", poseStamped)
+        transformedPoseStamped = tfListener.transformPose("summit_xl_odom", poseStamped)
 
         pos = transformedPoseStamped.pose.position
         csvFile.write("%f\t%f\t%f\t%f\n" % (pos.x, pos.y, pos.z, detectedPersons.header.stamp.to_sec()) )

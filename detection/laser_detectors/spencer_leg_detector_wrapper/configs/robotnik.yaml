@@ -1,4 +1,4 @@
-fixed_frame:            base_footprint 
+fixed_frame:            summit_xl_base_footprint 
 connection_threshold:   0.06
 min_points_per_group:   4
 leg_reliability_limit:  0.4

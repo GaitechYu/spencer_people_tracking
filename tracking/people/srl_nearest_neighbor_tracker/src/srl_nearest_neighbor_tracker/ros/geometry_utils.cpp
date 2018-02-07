@@ -56,7 +56,7 @@ GeometryUtils::GeometryUtils() : m_transformListener()
 
 std::string GeometryUtils::getWorldFrame()
 {
-    return srl_nnt::Params::get<std::string>("world_frame", "odom");
+    return srl_nnt::Params::get<std::string>("world_frame", "summit_xl_odom");
 }
 
 

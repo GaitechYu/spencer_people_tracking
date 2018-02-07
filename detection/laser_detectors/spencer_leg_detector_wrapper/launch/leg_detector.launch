@@ -1,10 +1,10 @@
 <!-- Launches the leg detector from wg-perception (needs to be installed separately) -->
 <launch>
-    <arg name="scan" default="scan"/>                           <!-- laser scan input topic -->
+    <arg name="scan" default="/summit_xl/front_laser/scan"/>                           <!-- laser scan input topic -->
     <arg name="detected_persons" default="detected_persons"/>   <!-- output topic -->
     <arg name="node_prefix" default="leg_detector"/>            <!-- prefix for node names -->
 
-    <arg name="config_file" default="defaults.yaml"/>
+    <arg name="config_file" default="robotnik.yaml"/>
  
     <arg name="detection_id_offset" default="0"/>
     <arg name="detection_id_increment" default="1"/>
