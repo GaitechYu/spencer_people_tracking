@@ -10,6 +10,7 @@
     <arg name="detection_id_offset_rear" default="2"/>
 
     <arg name="front_scan" default="/summit_xl/rear_laser/scan"/>
+    <arg name="rear_scan" default="/summit_xl/front_laser/scan"/>
 
     <!-- With default prefix, topic and node names will be similar to those from laser_detectors.launch. Override this if you want to run both at the same time! -->
     <arg name="node_prefix" default="laser"/>
@@ -28,7 +29,7 @@
 
         <!-- Rear -->
         <include file="$(find spencer_leg_detector_wrapper)/launch/leg_detector.launch" if="$(arg rear)">
-            <arg name="scan" value="/summit_xl/front_laser/scan"/>
+            <arg name="scan" value="$(arg rear_scan)"/>
             <arg name="node_prefix" value="$(arg node_prefix)_rear"/>
             <arg name="detected_persons" value="/spencer/perception_internal/detected_persons/$(arg node_prefix)_rear"/>
             <arg name="detection_id_increment" value="$(arg detection_id_increment)"/>
